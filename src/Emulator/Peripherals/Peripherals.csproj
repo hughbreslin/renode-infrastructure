@@ -462,6 +462,30 @@
     <Compile Include="Peripherals\SPI\AmbiqApollo4_IOMaster.cs" />
     <Compile Include="Peripherals\Timers\AmbiqApollo4_RTC.cs" />
     <Compile Include="Peripherals\Timers\AmbiqApollo4_SystemTimer.cs" />
+    <Compile Include="Peripherals\Miscellaneous\DDR_CSR_APB_200BC000.cs" />
+    <Compile Include="Peripherals\Miscellaneous\DDR_CSR_APB_20002000.cs" />
+    <Compile Include="Peripherals\Miscellaneous\DDR_CSR_APB_20007000.cs" />
+    <Compile Include="Peripherals\Miscellaneous\DDR_CSR_APB_20082000.cs" />
+    <Compile Include="Peripherals\Miscellaneous\DDR_CSR_APB_20083000.cs" />
+    <Compile Include="Peripherals\Miscellaneous\DDR_CSR_APB_20084000.cs" />
+    <Compile Include="Peripherals\Miscellaneous\DDR_CSR_APB_20085000.cs" />
+    <Compile Include="Peripherals\Miscellaneous\DDR_CSR_APB_20086000.cs" />
+    <Compile Include="Peripherals\Miscellaneous\DDR_CSR_APB_20087000.cs" />
+    <Compile Include="Peripherals\Miscellaneous\DDR_CSR_APB_20088000.cs" />
+    <Compile Include="Peripherals\Miscellaneous\DDR_CSR_APB_20090000.cs" />
+    <Compile Include="Peripherals\Miscellaneous\DDR_CSR_APB_20092000.cs" />
+    <Compile Include="Peripherals\Miscellaneous\DDR_CSR_APB_20093000.cs" />
+    <Compile Include="Peripherals\Miscellaneous\DDR_CSR_APB_3E010000.cs" />
+    <Compile Include="Peripherals\Miscellaneous\DDR_CSR_APB_3E010000.cs" />
+    <Compile Include="Peripherals\Miscellaneous\DDR_CSR_APB_3E020000.cs" />
+    <Compile Include="Peripherals\Miscellaneous\DDR_CSR_APB_3E040000.cs" />
+    <Compile Include="Peripherals\Miscellaneous\DDR_CSR_APB_20005000.cs" />
+    <Compile Include="Peripherals\Miscellaneous\DDR_CSR_APB_2010000.cs" />
+    <Compile Include="Peripherals\Miscellaneous\DDR_CSR_APB_1700000.cs" />
+    <Compile Include="Peripherals\Miscellaneous\DDR_CSR_APB_1701000.cs" />
+    <Compile Include="Peripherals\Miscellaneous\DDR_CSR_APB_1702000.cs" />
+    <Compile Include="Peripherals\Miscellaneous\DDR_CSR_APB_1703000.cs" />
+    <Compile Include="Peripherals\Miscellaneous\DDR_CSR_APB_1704000.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ProjectExtensions>
