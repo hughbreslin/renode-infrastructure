@@ -29,6 +29,7 @@ namespace Antmicro.Renode.Peripherals.Miscellaneous
                     break;
                 case 0x04:
                     value = PLL_CTRL;
+                    value = value | 0x2000000;
                     break;
                 case 0x08:
                     value = PLL_REF_FB;

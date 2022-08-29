@@ -18,8 +18,8 @@ namespace Antmicro.Renode.Peripherals.Miscellaneous
         private ulong STAT_DFI_ERROR = 0x00000000;
         private ulong STAT_DFI_ERROR_INFO = 0x00000000;
         private ulong CFG_DFI_DATA_BYTE_DISABLE = 0x00000000;
-        private ulong STAT_DFI_INIT_COMPLETE = 0x00000000;
-        private ulong STAT_DFI_TRAINING_COMPLETE = 0x00000000;
+        private ulong STAT_DFI_INIT_COMPLETE = 0x00000001;
+        private ulong STAT_DFI_TRAINING_COMPLETE = 0x00000001;
         private ulong CFG_DFI_LVL_SEL = 0x00000000;
         private ulong CFG_DFI_LVL_PERIODIC = 0x00000000;
         private ulong CFG_DFI_LVL_PATTERN = 0x00000000;
@@ -74,6 +74,7 @@ namespace Antmicro.Renode.Peripherals.Miscellaneous
                     break;
                 case 0x038:
                     value = STAT_DFI_TRAINING_COMPLETE;
+                    value = value | 0x1;
                     break;
                 case 0x03C:
                     value = CFG_DFI_LVL_SEL;
@@ -91,7 +92,7 @@ namespace Antmicro.Renode.Peripherals.Miscellaneous
                     value = 0x0;
                     break;
             }
-            this.Log(LogLevel.Noisy, "Read word from DDR controller - offset: 0x{0:X}, value 0x{1:X}", offset, value);
+            this.Log(LogLevel.Noisy, "Read byte from DDR controller - offset: 0x{0:X}, value 0x{1:X}", offset, value);
             return (uint)value;
         }
 
@@ -159,7 +160,7 @@ namespace Antmicro.Renode.Peripherals.Miscellaneous
                 default:
                     break;
             }
-            this.Log(LogLevel.Noisy, "write word to DDR controller - offset: 0x{0:X}, value 0x{1:X}", offset, value);
+            this.Log(LogLevel.Noisy, "write word DDR controller - offset: 0x{0:X}, value 0x{1:X}", offset, value);
         }
 
         public void Reset()

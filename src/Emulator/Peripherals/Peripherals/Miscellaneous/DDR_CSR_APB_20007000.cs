@@ -421,6 +421,7 @@ namespace Antmicro.Renode.Peripherals.Miscellaneous
                     break;
                 case 0x084:
                     value = PLL_CTRL_MAIN;
+                    value = value | 0x2000000;
                     break;
                 case 0x088:
                     value = PLL_REF_FB_MAIN;
@@ -520,6 +521,7 @@ namespace Antmicro.Renode.Peripherals.Miscellaneous
                     break;
                 case 0x208:
                     value = IOC_REG1;
+                    value = value | 0x14;
                     break;
                 case 0x20C:
                     value = IOC_REG2;
@@ -1402,6 +1404,7 @@ namespace Antmicro.Renode.Peripherals.Miscellaneous
                     break;
                 case 0x814:
                     value = TRAINING_STATUS;
+                    value = value | 0xFF; // complete bits
                     break;
                 case 0x818:
                     value = TRAINING_RESET;
@@ -1411,9 +1414,11 @@ namespace Antmicro.Renode.Peripherals.Miscellaneous
                     break;
                 case 0x820:
                     value = GT_CLK_SEL;
+                    value = value | 0x3;
                     break;
                 case 0x824:
                     value = GT_TXDLY;
+                    value = value | 0xFFFFFFFF;
                     break;
                 case 0x828:
                     value = GT_STEPS_180;
@@ -1426,6 +1431,7 @@ namespace Antmicro.Renode.Peripherals.Miscellaneous
                     break;
                 case 0x834:
                     value = DQ_DQS_ERR_DONE;
+                    value = value | 0x8;
                     break;
                 case 0x838:
                     value = DQDQS_WINDOW;
@@ -1447,6 +1453,7 @@ namespace Antmicro.Renode.Peripherals.Miscellaneous
                     break;
                 case 0x850:
                     value = DQDQS_STATUS2;
+                    value = value | 0x5;
                     break;
                 case 0x854:
                     value = DQDQS_STATUS3;
@@ -1462,6 +1469,7 @@ namespace Antmicro.Renode.Peripherals.Miscellaneous
                     break;
                 case 0x864:
                     value = ADDCMD_STATUS0;
+                    value = value | 0xFFFFFFFF;
                     break;
                 case 0x868:
                     value = ADDCMD_STATUS1;
@@ -1516,6 +1524,8 @@ namespace Antmicro.Renode.Peripherals.Miscellaneous
                     break;
                 case 0x8AC:
                     value = EXPERT_ADDCMD_LN_READBACK;
+                    value = value ^ 0x3fff;
+                    EXPERT_ADDCMD_LN_READBACK = value;
                     break;
                 case 0x8B0:
                     value = EXPERT_READ_GATE_CONTROLS;
@@ -1558,6 +1568,7 @@ namespace Antmicro.Renode.Peripherals.Miscellaneous
                     break;
                 case 0xC08:
                     value = PLL_CNTL;
+                     value = value | 0x80;
                     break;
                 case 0xC0C:
                     value = CH0_CNTL;
@@ -1567,6 +1578,7 @@ namespace Antmicro.Renode.Peripherals.Miscellaneous
                     break;
                 case 0xC14:
                     value = RECAL_CNTL;
+                    value = value | 0x800000;
                     break;
                 case 0xC18:
                     value = CLK_CNTL;
@@ -1576,6 +1588,7 @@ namespace Antmicro.Renode.Peripherals.Miscellaneous
                     break;
                 case 0xC20:
                     value = PVT_STAT;
+                     value = value | 0xC040;
                     break;
                 case 0xC24:
                     value = SPARE_CNTL;
@@ -1587,7 +1600,7 @@ namespace Antmicro.Renode.Peripherals.Miscellaneous
                     value = 0x0;
                     break;
             }
-            this.Log(LogLevel.Noisy, "Read word from DDR controller - offset: 0x{0:X}, value 0x{1:X}", offset, value);
+            this.Log(LogLevel.Noisy, "Read byte from DDR controller - offset: 0x{0:X}, value 0x{1:X}", offset, value);
             return (uint)value;
         }
 
@@ -2602,9 +2615,11 @@ namespace Antmicro.Renode.Peripherals.Miscellaneous
                     break;
                 case 0x820:
                     GT_CLK_SEL =  value;
+                    value = value | 0x3;
                     break;
                 case 0x824:
                     GT_TXDLY =  value;
+                    
                     break;
                 case 0x828:
                     GT_STEPS_180 =  value;
@@ -2777,7 +2792,7 @@ namespace Antmicro.Renode.Peripherals.Miscellaneous
                 default:
                     break;
             }
-            this.Log(LogLevel.Noisy, "write word to DDR controller - offset: 0x{0:X}, value 0x{1:X}", offset, value);
+            this.Log(LogLevel.Noisy, "write word DDR controller - offset: 0x{0:X}, value 0x{1:X}", offset, value);
         }
 
         public void Reset()

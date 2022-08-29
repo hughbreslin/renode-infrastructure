@@ -27,6 +27,7 @@ namespace Antmicro.Renode.Peripherals.Miscellaneous
                     break;
                 case 0x08:
                     value = IOC_REG1;
+                    value = value | 0x14;
                     break;
                 case 0x0C:
                     value = IOC_REG2;

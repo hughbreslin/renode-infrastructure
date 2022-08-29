@@ -335,7 +335,7 @@ namespace Antmicro.Renode.Peripherals.Miscellaneous
                     value = 0x0;
                     break;
             }
-            this.Log(LogLevel.Noisy, "Read word from DDR controller - offset: 0x{0:X}, value 0x{1:X}", offset, value);
+            this.Log(LogLevel.Noisy, "Read byte from DDR controller - offset: 0x{0:X}, value 0x{1:X}", offset, value);
             return (uint)value;
         }
 
@@ -586,7 +586,7 @@ namespace Antmicro.Renode.Peripherals.Miscellaneous
                 default:
                     break;
             }
-            this.Log(LogLevel.Noisy, "write word to DDR controller - offset: 0x{0:X}, value 0x{1:X}", offset, value);
+            this.Log(LogLevel.Noisy, "write word DDR controller - offset: 0x{0:X}, value 0x{1:X}", offset, value);
         }
 
         public void Reset()
